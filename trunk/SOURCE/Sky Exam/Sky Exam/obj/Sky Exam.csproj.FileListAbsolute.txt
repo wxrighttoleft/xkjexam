@@ -1,0 +1,7 @@
+F:\项目\Sky Exam\Sky Exam\bin\Debug\Sky Exam.exe
+F:\项目\Sky Exam\Sky Exam\bin\Debug\Sky Exam.pdb
+F:\项目\Sky Exam\Sky Exam\obj\Debug\ResolveAssemblyReference.cache
+F:\项目\Sky Exam\Sky Exam\obj\Debug\Sky_Exam.Properties.Resources.resources
+F:\项目\Sky Exam\Sky Exam\obj\Debug\Sky Exam.csproj.GenerateResource.Cache
+F:\项目\Sky Exam\Sky Exam\obj\Debug\Sky Exam.exe
+F:\项目\Sky Exam\Sky Exam\obj\Debug\Sky Exam.pdb
