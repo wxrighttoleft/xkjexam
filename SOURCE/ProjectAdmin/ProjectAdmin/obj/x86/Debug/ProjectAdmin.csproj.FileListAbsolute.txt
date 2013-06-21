@@ -1,0 +1,10 @@
+F:\项目\ProjectAdmin\ProjectAdmin\bin\Debug\ProjectAdmin.exe
+F:\项目\ProjectAdmin\ProjectAdmin\bin\Debug\ProjectAdmin.pdb
+F:\项目\ProjectAdmin\ProjectAdmin\bin\Debug\IrisSkin2.DLL
+F:\项目\ProjectAdmin\ProjectAdmin\obj\x86\Debug\ResolveAssemblyReference.cache
+F:\项目\ProjectAdmin\ProjectAdmin\obj\x86\Debug\ProjectAdmin.Properties.Resources.resources
+F:\项目\ProjectAdmin\ProjectAdmin\obj\x86\Debug\GenerateResource-ResGen.read.1.tlog
+F:\项目\ProjectAdmin\ProjectAdmin\obj\x86\Debug\GenerateResource-ResGen.write.1.tlog
+F:\项目\ProjectAdmin\ProjectAdmin\obj\x86\Debug\ProjectAdmin.exe
+F:\项目\ProjectAdmin\ProjectAdmin\obj\x86\Debug\ProjectAdmin.pdb
+F:\项目\ProjectAdmin\ProjectAdmin\obj\x86\Debug\ProjectAdmin.MainFrm.resources
