@@ -1,0 +1,26 @@
+@CHARSET "UTF-8";
+.menu_top{
+	font-weight:bold;
+	font-size:16px;
+	width:182px;
+	height:30px;
+	text-align:center;
+	background-image:url('../images/menuBg/menu_bg.gif');
+	line-height: 30px;
+}
+.menu_2{
+	font-size:14px;
+	width:182px;
+	text-align:center;
+	background-image:url('../images/menuBg/menu_topline.gif');
+	background-repeat:no-repeat;
+	display:none;
+	padding-top:5px;
+}
+.menu_2_1{
+	font-size:14px;
+	width:182px;
+	height:20px;
+	text-align:center;
+	line-height:20px;
+}
