@@ -1,5 +1,10 @@
 package com.zyexam.services;
 
+import java.util.Iterator;
+
+import net.sf.json.JSONObject;
+
+import org.jboss.netty.channel.Channel;
 import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.channel.ExceptionEvent;
 import org.jboss.netty.channel.MessageEvent;
@@ -13,6 +18,9 @@ import org.jboss.netty.handler.codec.http.websocketx.WebSocketServerHandshaker;
 import org.jboss.netty.handler.codec.http.websocketx.WebSocketServerHandshakerFactory;
 import org.jboss.netty.logging.InternalLogger;
 import org.jboss.netty.logging.InternalLoggerFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
+
 
 public class WebSocketServerHandler extends SimpleChannelUpstreamHandler {
 	@SuppressWarnings("unused")
@@ -62,15 +70,31 @@ public class WebSocketServerHandler extends SimpleChannelUpstreamHandler {
 //            logger.debug(String.format("Channel %s received %s", ctx.getChannel().getId(), request));  
 //        }  
         WebSocketServer.recipients.write(new TextWebSocketFrame(request));
-//        InetSocketAddress socketAddress = new InetSocketAddress("192.168.1.24", 8888);
-        
+        JSONObject jsonobj = JSONObject.fromObject(request);
+        boolean loginState = false;
+        loginState = jsonobj.getBoolean("ls");
+        int id = jsonobj.getInt("id");
+        String appurl = WebSocketServerHandler.class.getResource("/").toString();
+        ApplicationContext app = new FileSystemXmlApplicationContext(appurl + "/applicationContext.xml");
+        ExamUserServer eus = (ExamUserServer)app.getBean("examUserServer");
+        if(!loginState){
+        	String ip = ctx.getChannel().getRemoteAddress().toString();
+        	ip = ip.substring(ip.indexOf("/")+1);
+        	eus.updateStudentIp(ip, id);
+        }
     }  
       
     @Override  
     public void exceptionCaught(ChannelHandlerContext ctx, ExceptionEvent e) throws Exception {  
         e.getCause().printStackTrace();  
         e.getChannel().close();
-        WebSocketServer.recipients.clear();
+        for(Iterator<Channel> itr = WebSocketServer.recipients.iterator();itr.hasNext();){
+        	Channel channel = itr.next();
+        	if(ctx.getChannel().getId() == channel.getId()){
+        		channel.close();
+        		break;
+        	}
+        }
     }  
   
     @SuppressWarnings("deprecation")

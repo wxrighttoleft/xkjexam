@@ -36,6 +36,11 @@
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
   <session-config>
-  	<session-timeout>60</session-timeout>
+  	<session-timeout>30</session-timeout>
   </session-config>
+  <servlet>
+  	<servlet-name>WebSocketServerStart</servlet-name>
+  	<servlet-class>com.zyexam.web.WebSocketServerStartServlet</servlet-class>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
 </web-app>

@@ -431,4 +431,12 @@ public class ExamUserServer {
 		songE.addElement("artist").addText("d");
 		return doc;
 	}
+	
+	public void updateStudentIp(String ip,int id){
+		String hql = "update SysUsers su set su.userIpAddress = ? where su.userId = ?";
+		List<Object> paramList = new ArrayList<Object>();
+		paramList.add(ip);
+		paramList.add(id);
+		this.suDAO.update(hql, paramList);
+	}
 }

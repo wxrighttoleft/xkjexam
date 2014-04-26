@@ -27,17 +27,5 @@ public class WebSocketServer {
         // Bind and start to accept incoming connections.  
         bootstrap.bind(new InetSocketAddress(port));  
   
-        System.out.println("Web socket server started at port " + port + '.');  
-        System.out.println("Open your browser and navigate to http://localhost:" + port + '/');  
-    }  
-  
-    public static void main(String[] args) {  
-    	int port;  
-        if (args.length > 0) {  
-            port = Integer.parseInt(args[0]);  
-        } else {  
-            port = 8888;  
-        }  
-        new WebSocketServer(port).run();  
-    } 
+    }
 }
