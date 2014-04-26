@@ -21,6 +21,8 @@ import org.jboss.netty.logging.InternalLoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
+import com.zyexam.util.Message;
+
 
 public class WebSocketServerHandler extends SimpleChannelUpstreamHandler {
 	@SuppressWarnings("unused")
@@ -55,7 +57,7 @@ public class WebSocketServerHandler extends SimpleChannelUpstreamHandler {
         WebSocketServer.recipients.add(ctx.getChannel());
     }  
   
-    private void handleWebSocketFrame(ChannelHandlerContext ctx, WebSocketFrame frame) {  
+    private void handleWebSocketFrame(ChannelHandlerContext ctx, WebSocketFrame frame) throws Exception {  
   
         // Check for closing frame  
         if (frame instanceof CloseWebSocketFrame) {  
@@ -70,18 +72,12 @@ public class WebSocketServerHandler extends SimpleChannelUpstreamHandler {
 //            logger.debug(String.format("Channel %s received %s", ctx.getChannel().getId(), request));  
 //        }  
         WebSocketServer.recipients.write(new TextWebSocketFrame(request));
-        JSONObject jsonobj = JSONObject.fromObject(request);
-        boolean loginState = false;
-        loginState = jsonobj.getBoolean("ls");
-        int id = jsonobj.getInt("id");
         String appurl = WebSocketServerHandler.class.getResource("/").toString();
         ApplicationContext app = new FileSystemXmlApplicationContext(appurl + "/applicationContext.xml");
         ExamUserServer eus = (ExamUserServer)app.getBean("examUserServer");
-        if(!loginState){
-        	String ip = ctx.getChannel().getRemoteAddress().toString();
-        	ip = ip.substring(ip.indexOf("/")+1);
-        	eus.updateStudentIp(ip, id);
-        }
+        JSONObject jsonobj = JSONObject.fromObject(request);
+        Message msg = (Message)JSONObject.toBean(jsonobj, Message.class);
+        System.out.println(msg.getId());
     }  
       
     @Override  
