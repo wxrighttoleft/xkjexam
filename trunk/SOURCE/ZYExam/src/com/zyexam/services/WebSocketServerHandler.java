@@ -1,4 +1,4 @@
-package com.zyexam.web.action;
+package com.zyexam.services;
 
 import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.channel.ExceptionEvent;
