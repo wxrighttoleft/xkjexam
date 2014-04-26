@@ -10,20 +10,22 @@
 <body>  
 <script type="text/javascript">  
 var socket;  
-if (!window.WebSocket) {  
-    window.WebSocket = window.MozWebSocket;  
-}  
+var loginState = false;
+window.WebSocket = window.MozWebSocket || window.WebSocket;
 // Javascript Websocket Client  
 if (window.WebSocket) {  
     socket = new WebSocket("ws://192.168.1.102:8888/websocket");  
     socket.onmessage = function(event) {  
-        $("#responseText").text($("#responseText").text() + "\n" +  event.data);
+    	var msg = JSON.parse(event.data);
+        $("#responseText").append("<label style='color:blue;'>"+msg.id+"</label><p></p>");
+        $("#responseText>p:empty").text(msg.message);
+        loginState = msg.ls;
     };  
     socket.onopen = function(event) {  
-    	$("#responseText").text("Web Socket opened!");  
+    	$("#responseText").append("<label style='color:green'>Web Socket opened!</label>");  
     };  
     socket.onclose = function(event) {  
-    	$("#responseText").text($("#responseText").text() + "\nWeb Socket closed");  
+    	$("#responseText").append("<label style='color:red;'>Web Socket closed</label>");  
     };  
 } else {  
     alert("Your browser does not support Web Socket.");
@@ -31,12 +33,18 @@ if (window.WebSocket) {
 // Send Websocket data  
 function send(message) {  
 	var name = $("input[name=message]").val();  
-    alert("websocket send message:"+name); 
-    socket.send(name);
+    var msg = {
+    		id:$("#stuId").val(),
+    		message:name,
+    		target:"student",
+    		ls:loginState
+    };
+    socket.send(JSON.stringify(msg));
 }  
 </script>  
 <h3>Send :</h3>  
-<form onsubmit="return false;">  
+<form onsubmit="return false;">
+<input type="hidden" id="stuId" value="${sessionScope.stuAnthor}"/>  
 <input type="text" name="message" value="Hello World!"/><input type="button" value="Send Web Socket Data" onclick="send(this.form.message.value)" />  
 <h3>Receive :</h3>  
 <pre  id="responseText" style="width:500px;height:300px;"></pre>  
