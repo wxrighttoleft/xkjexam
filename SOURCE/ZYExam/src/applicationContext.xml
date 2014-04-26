@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+	<!-- =========配置sessionFactory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="configLocation">
+			<value>classpath:hibernate.cfg.xml</value>
+		</property>
+	</bean>
+	<!-- ==========配置事务管理器 -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<aop:config>
+		<aop:advisor advice-ref="txAdvice" pointcut="execution(* com.zyexam.services.*.*(..))"/>
+	</aop:config>
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="select*"/>
+			<tx:method name="add*"/>
+			<tx:method name="insert*"/>
+			<tx:method name="delete*"/>
+			<tx:method name="update*"/>
+		</tx:attributes>
+	</tx:advice>
+	<aop:aspectj-autoproxy proxy-target-class="true"></aop:aspectj-autoproxy>
+	<!-- =============DAObean=============== -->
+	<bean id="sysUserDAO" class="com.zyexam.dao.SysUsersDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="questionsDAO" class="com.zyexam.dao.QuestionsDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="objectsDAO" class="com.zyexam.dao.ObjectsDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="subjectsDAO" class="com.zyexam.dao.SubjectsDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="testQuestionsDAO" class="com.zyexam.dao.TestQuestionsDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="testResultDAO" class="com.zyexam.dao.TestResultDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- ===================ServicesBean======================= -->
+	<bean id="examUserServer" class="com.zyexam.services.ExamUserServer">
+		<property name="suDAO" ref="sysUserDAO"></property>
+		<property name="aesUtil" ref="aesUtil"></property>
+		<property name="trDAO" ref="testResultDAO"></property>
+		<property name="tqDAO" ref="testQuestionsDAO"></property>
+		<property name="sDAO" ref="subjectsDAO"></property>
+		<property name="oDAO" ref="objectsDAO"></property>
+		<property name="qDAO" ref="questionsDAO"></property>
+	</bean>
+	<bean id="teacherServer" class="com.zyexam.services.TeacherServer">
+		<property name="qDAO" ref="questionsDAO"></property>
+	</bean>
+	<!-- ****************InterceptorsBean****************** -->
+	<bean id="stuExamInterceptor" class="com.zyexam.web.interceptors.StuExamInterceptor"></bean>
+	<!-- =================ActionBean=================== -->
+	<bean id="userExamAction" class="com.zyexam.web.action.UserExamAction" scope="prototype">
+		<property name="eus" ref="examUserServer"></property>
+		<property name="anthCodeImg" ref="anthCode"></property>
+		<property name="aesUtil" ref="aesUtil"></property>
+	</bean>
+	<bean id="teacherAction" class="com.zyexam.web.action.TeacherAction" scope="prototype">
+		<property name="teaServer" ref="teacherServer"></property>
+	</bean>
+	<!-- ============工具类bean=============== -->
+	<bean id="anthCode" class="com.zy.util.AnthCodeImage"></bean>
+	<bean id="aesUtil" class="com.zy.aespwd.AESUtil"></bean>
+</beans>

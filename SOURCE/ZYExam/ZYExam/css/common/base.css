@@ -1,0 +1,13 @@
+@CHARSET "UTF-8";
+html,body,input,ul,ol,li,table,tr,td,tbody,thead,div,span,label,select{margin:0px; padding:0px;font-size:12px;}
+div{margin:0px auto;}
+div.clear{clear:both;}
+table,td,img{border:none;}
+a{text-decoration:none;}
+a:link,a:visited{color:blue;}
+div.float_style{float:left;margin-right: 10px;}
+thead th{background-color:lightcyan;}
+td{vertical-align:middle;}
+td.bottom{border-bottom:none;}
+td.right,th.right{border-right:none;}
+ul{list-style-position: inside;}

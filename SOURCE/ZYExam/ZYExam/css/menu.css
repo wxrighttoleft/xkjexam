@@ -1,0 +1,4 @@
+@CHARSET "UTF-8";
+.menuBase,.menuOpen{width:150px;height:20px;border:1px solid #dedede;line-height: 20px;border-top:none;cursor: pointer;border-radius:4px;}
+.menuOpen{border-right:none;}
+.menuBase span,.menuOpen span{margin-left:10px;font-weight: bold;}

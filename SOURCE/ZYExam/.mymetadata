@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="ZYExam"
+  id="myeclipse.1394087042890"
+  context-root="/ZYExam"
+  j2ee-spec="5.0"
+  archive="ZYExam.war">
+  <attributes>
+    <attribute name="webrootdir" value="ZYExam" />
+  </attributes>
+</project-module>
+
