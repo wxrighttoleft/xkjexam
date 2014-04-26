@@ -47,7 +47,7 @@ function send(message) {
 <input type="hidden" id="stuId" value="${sessionScope.stuAnthor}"/>  
 <input type="text" name="message" value="Hello World!"/><input type="button" value="Send Web Socket Data" onclick="send(this.form.message.value)" />  
 <h3>Receive :</h3>  
-<pre  id="responseText" style="width:500px;height:300px;"></pre>  
+<div id="responseText" style="width:500px;height:300px;overflow-y:scroll;border:1px solid #dedede; "></div>  
 </form>  
 </body>  
 </html>  

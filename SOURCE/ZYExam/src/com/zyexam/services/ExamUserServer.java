@@ -439,4 +439,12 @@ public class ExamUserServer {
 		paramList.add(id);
 		this.suDAO.update(hql, paramList);
 	}
+	@SuppressWarnings("unchecked")
+	public List<String> getStudentIp(){
+		String hql = "select su.userIpAddress from SysUsers su where su.userState=?";
+		List<Object> paramList = new ArrayList<Object>();
+		paramList.add(0);
+		List<String> l = this.suDAO.select(hql, paramList, null);
+		return l;
+	}
 }
