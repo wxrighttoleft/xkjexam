@@ -1,6 +1,7 @@
 package com.zyexam.services;
 
 import java.util.Iterator;
+import java.util.List;
 
 import net.sf.json.JSONObject;
 
@@ -71,13 +72,27 @@ public class WebSocketServerHandler extends SimpleChannelUpstreamHandler {
 //        if (logger.isDebugEnabled()) {  
 //            logger.debug(String.format("Channel %s received %s", ctx.getChannel().getId(), request));  
 //        }  
-        WebSocketServer.recipients.write(new TextWebSocketFrame(request));
         String appurl = WebSocketServerHandler.class.getResource("/").toString();
         ApplicationContext app = new FileSystemXmlApplicationContext(appurl + "/applicationContext.xml");
         ExamUserServer eus = (ExamUserServer)app.getBean("examUserServer");
         JSONObject jsonobj = JSONObject.fromObject(request);
         Message msg = (Message)JSONObject.toBean(jsonobj, Message.class);
-        System.out.println(msg.getId());
+        if(!msg.getLs()){
+        	String ip = ctx.getChannel().getRemoteAddress().toString();
+        	ip= ip.substring(ip.indexOf("/")+1);
+        	eus.updateStudentIp(ip, msg.getId());
+        	msg.setLs(true);
+        }
+        if("student".equalsIgnoreCase(msg.getTarget())){
+        	for(Iterator<Channel> itr = WebSocketServer.recipients.iterator();itr.hasNext();){
+        		Channel channel = itr.next();
+        		List<String> ipList = eus.getStudentIp();
+        		String ip = channel.getRemoteAddress().toString();
+        		ip = ip.substring(ip.indexOf("/")+1);
+        		if(ipList.contains(ip))
+        			channel.write(new TextWebSocketFrame(JSONObject.fromObject(msg).toString()));
+        	}
+        }
     }  
       
     @Override  
