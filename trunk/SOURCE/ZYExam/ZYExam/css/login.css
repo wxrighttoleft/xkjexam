@@ -1,0 +1,5 @@
+@CHARSET "UTF-8";
+body{background:#dedede;}
+div.bg{width:400px;height:auto;}
+input.text{width:120px;height:20px;border:1px solid cornsilk;}
+table{width:400px;}

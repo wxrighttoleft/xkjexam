@@ -1,0 +1,22 @@
+<mp3player>
+	<settings>
+		<width>120</width>
+		<height>110</height>
+		<autoLoad>true</autoLoad>
+		<autoPlay>false</autoPlay>
+		<continuousPlay>true</continuousPlay>
+		<onCompleteJumpToNext>true</onCompleteJumpToNext>
+		<repeat>true</repeat>
+		<shuffleSongs>false</shuffleSongs>
+		<showSongNumber>true</showSongNumber>
+		<initialVolume>70</initialVolume>
+		<bufferTime>5</bufferTime>
+	</settings>
+	<!-- <songs>		
+		<song>		
+			<url>/ZYExam/video/b.mp3</url>
+			<songname>海角七号</songname>
+			<artist>天海</artist>			
+		</song>
+	</songs> -->
+</mp3player>

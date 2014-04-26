@@ -1,0 +1,1 @@
+from UserIpaddress userIp where userIp.uaIp = 1

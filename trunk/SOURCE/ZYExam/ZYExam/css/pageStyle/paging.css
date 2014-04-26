@@ -1,0 +1,7 @@
+@CHARSET "UTF-8";
+ul.list{list-style:none;}
+ul.list li{position: relative;margin:0px 5px 0px 0px;float:left;}
+ul.list li.bg,li.openbg{width:20px;}
+ul.list li.bg,li.openbg div{width:20px;}
+ul.list li.bg{background-color:azure;}
+ul.list li.openbg{background-color:cornflowerblue;}
