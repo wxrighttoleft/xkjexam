@@ -1,0 +1,5 @@
+@CHARSET "UTF-8";
+div,ul,ol,li,tabel,td,th,body,html{padding:0px; margin:0px;font-size:12px;}
+a{text-decoration:none; border:none;}
+a:link,a:visited {color:black;}
+a:hover{color:blue;}
