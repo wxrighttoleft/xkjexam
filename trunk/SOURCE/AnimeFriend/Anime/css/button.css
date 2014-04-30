@@ -1,0 +1,6 @@
+@CHARSET "UTF-8";
+.login ul{list-style:none;}
+.login ul li{float:left;}
+.login_button,.login_button_hover{width:110px;height:30px;background:url('../images/buttons/buttons.png') no-repeat;border:none;}
+.login_button{background-position: 0px 2px;}
+.login_button_hover{background-position: 0px -36px;}
