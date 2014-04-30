@@ -13,6 +13,17 @@
 	<link rel="stylesheet" type="text/css" href="css/basic.css">
 	<link rel="stylesheet" type="text/css" href="css/button.css"/>
 	<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#loginButton,#regButton").hover(function(){
+				$(this).removeClass("login_button");
+				$(this).addClass("login_button_hover");
+			},function(){
+				$(this).removeClass("login_button_hover");
+				$(this).addClass("login_button");
+			});
+		});
+	</script>
   </head>
   
   <body>
@@ -28,17 +39,6 @@
     			<li><input type="submit" value="登陆" class="login_button" id="loginButton"/></li>
     			<li><input type="button" value="注册" class="login_button" id="regButton"/></li>
     		</ul>
-    		<script type="text/javascript">
-    			$(function(){
-    				$("#loginButton,#regButton").hover(function(){
-    					$(this).removeClass("login_button");
-    					$(this).addClass("login_button_hover");
-    				},function(){
-    					$(this).removeClass("login_button_hover");
-    					$(this).addClass("login_button");
-    				});
-    			});
-    		</script>
     		<div style="clear: both;"></div>
     	</div>
     </div>
