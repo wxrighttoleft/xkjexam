@@ -3,10 +3,19 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="melibrary.com.genuitec.eclipse.j2eedt.core.MYECLIPSE_JAVAEE_5_CONTAINER"/>
-	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="con" path="melibrary.com.genuitec.eclipse.hibernate.MYECLIPSE_HIBERNATE3_2_EM"/>
-	<classpathentry kind="con" path="melibrary.com.genuitec.eclipse.hibernate.MYECLIPSE_HIBERNATE3_2_CORE"/>
 	<classpathentry kind="lib" path="Anime/WEB-INF/lib/sqljdbc.jar"/>
+	<classpathentry kind="lib" path="Anime/WEB-INF/lib/aesutil_1.0.1.jar"/>
+	<classpathentry kind="lib" path="Anime/WEB-INF/lib/anthcode_1.1.jar"/>
+	<classpathentry kind="lib" path="Anime/WEB-INF/lib/aspectjweaver.jar"/>
+	<classpathentry kind="lib" path="Anime/WEB-INF/lib/cglib-nodep-2.1_3.jar"/>
+	<classpathentry kind="lib" path="Anime/WEB-INF/lib/commons-logging-1.0.4.jar"/>
+	<classpathentry kind="lib" path="Anime/WEB-INF/lib/commons-logging.jar"/>
+	<classpathentry kind="lib" path="Anime/WEB-INF/lib/freemarker-2.3.8.jar"/>
+	<classpathentry kind="lib" path="Anime/WEB-INF/lib/ognl-2.6.11.jar"/>
+	<classpathentry kind="lib" path="Anime/WEB-INF/lib/spring.jar"/>
+	<classpathentry kind="lib" path="Anime/WEB-INF/lib/struts2-core-2.0.11.jar"/>
+	<classpathentry kind="lib" path="Anime/WEB-INF/lib/struts2-spring-plugin-2.0.11.jar"/>
+	<classpathentry kind="lib" path="Anime/WEB-INF/lib/xwork-2.0.4.jar"/>
 	<classpathentry kind="output" path="Anime/WEB-INF/classes"/>
 </classpath>
