@@ -4,3 +4,4 @@ a{text-decoration:none;}
 a:link,a:visited {color:black;}
 a:hover{color:blue;}
 img{border:none;}
+div.base{width:1024px;height:auto;min-width:980px;margin:0px auto;}
