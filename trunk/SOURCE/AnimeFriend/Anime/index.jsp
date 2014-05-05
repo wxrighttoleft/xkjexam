@@ -59,9 +59,9 @@
   
   <body>
   	<!-- logo + login div -->
-    <div style="line-height:60px;" class="base">
+    <div style="line-height:60px;" class="base toptitle">
     	<div class="logo"><a href="#"><img src="images/anime_logo.png"/></a></div>
-    	<div class="login">
+    	<div class="login" id="loginDiv">
     		<ul>
     			<li><label>账号：</label></li>
     			<li><input type="text" value="请输入邮箱账号或用户名" style="color:#dedede;" id="anthorText" name=""/></li>
@@ -69,6 +69,7 @@
     			<li><input type="password" id="pwdText" name=""/><label id="pwdTitle" class="login_label">请输入密码</label></li>
     			<li><label>验证码：</label></li>
     			<li><input type="text" class="login_anth_text"/></li>
+    			<li><img /></li>
     			<li><input type="submit" value="登陆" class="login_button" id="loginButton"/></li>
     			<li><input type="button" value="注册" class="login_button" id="regButton"/></li>
     		</ul>
