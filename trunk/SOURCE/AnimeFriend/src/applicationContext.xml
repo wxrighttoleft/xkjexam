@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="configLocation">
+			<value>classpath:hibernate.cfg.xml</value>
+		</property>
+	</bean>
+	<!-- ==========配置事务管理器 -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<aop:config>
+		<aop:advisor advice-ref="txAdvice"
+			pointcut="execution(* com.zyexam.services.*.*(..))" />
+	</aop:config>
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="select*" />
+			<tx:method name="add*" />
+			<tx:method name="insert*" />
+			<tx:method name="delete*" />
+			<tx:method name="update*" />
+		</tx:attributes>
+	</tx:advice>
+	<aop:aspectj-autoproxy proxy-target-class="true"></aop:aspectj-autoproxy>
+	<!-- Action -->
+	<bean id="serverStart" class="com.anime.zy.web.action.ServerStartAction">
+		<property name="anthCode" ref="anthCode"></property>
+	</bean>
+	<!-- 工具包 -->
+	<bean id="anthCode" class="com.zy.util.AnthCodeImage"></bean>
+</beans>

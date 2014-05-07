@@ -8,8 +8,9 @@
     <constant name="struts.enable.DynamicMethodInvocation" value="true" />
     <constant name="struts.devMode" value="true" />
     <constant name="struts.i18n.encoding" value="UTF-8"/>
+    <constant name="struts.objectFactory" value="spring"/>
     <package name="serverstart" extends="struts-default">
-    	<action name="server_*" class="" method="{1}">
+    	<action name="server_*" class="serverStart" method="{1}">
     	
     	</action>
     </package>
