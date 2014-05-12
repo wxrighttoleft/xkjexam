@@ -28,12 +28,12 @@
 			$("#anthorText").focus(function(){
 				if($(this).val() == this.defaultValue){
 					$(this).val("");
-					$(this).css("color","black")
+					$(this).css("color","black");
 				}
 			}).blur(function(){
 				if($(this).val() == ""){
 					$(this).val(this.defaultValue);
-					$(this).css("color","#dedede")
+					$(this).css("color","#dedede");
 				}
 			});
 			$("#pwdText").focus(function(){
