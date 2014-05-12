@@ -1,0 +1,4 @@
+div.menuroot{background:#dedede;height:30px;margin-top:5px;}
+div.menuroot ul{list-style:none;margin-left:50px;}
+div.menuroot ul li{float:left;line-height:30px;width:60px;height:30px;}
+div.menuroot ul li a{display:block;width:60px;height:30px;line-height:30px;}
