@@ -14,6 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="css/basic.css"/>
 	<link rel="stylesheet" type="text/css" href="css/button.css"/>
 	<link rel="stylesheet" type="text/css" href="css/logo.css"/>
+	<link rel="stylesheet" type="text/css" href="css/menu.css"/>
 	<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
 	<script type="text/javascript">
 		$(function(){
@@ -81,6 +82,12 @@
     		<div style="clear: both;"></div>
     	</div>
     	<div style="clear:both;"></div>
+    </div>
+    <!-- 导航菜单 -->
+    <div class="base menuroot">
+   		<ul>
+   			<li><a href="#">首页</a></li>
+   		</ul>
     </div>
   </body>
 </html>
