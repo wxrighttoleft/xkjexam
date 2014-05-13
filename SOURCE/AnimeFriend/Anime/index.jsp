@@ -92,5 +92,30 @@
    			<li><a href="#">动漫图展</a></li>
    		</ul>
     </div>
+    <!-- 领头动漫层 -->
+    <div class="base">
+    	<!-- 最热动漫 -->
+    	<div>
+    		<ul>
+    			<li></li>
+    			<li>
+    				<img src="" width="90px" height="68px"  align="middle"/>
+    				<div></div>
+    			</li>
+    			<li>
+    				<img src="" width="90px" height="68px" align="middle"/>
+    				<div></div>
+    			</li>
+    			<li>
+    				<img src="" width="90px" height="68px" align="middle"/>
+    				<div></div>
+    			</li>
+    		</ul>
+    	</div>
+    	<!-- 最近更新动漫 -->
+    	<div></div>
+    	<!-- 动漫更新表 -->
+    	<div></div>
+    </div>
   </body>
 </html>
