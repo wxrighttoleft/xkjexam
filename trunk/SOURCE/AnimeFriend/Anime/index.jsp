@@ -97,7 +97,7 @@
     	<!-- 最热动漫 -->
     	<div>
     		<ul>
-    			<li></li>
+    			<li>最热动画</li>
     			<li>
     				<img src="" width="90px" height="68px"  align="middle"/>
     				<div></div>
@@ -112,7 +112,7 @@
     			</li>
     		</ul>
     	</div>
-    	<!-- 最近更新动漫 -->
+    	<!-- 精彩推荐 -->
     	<div></div>
     	<!-- 动漫更新表 -->
     	<div></div>
