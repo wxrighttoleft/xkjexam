@@ -58,7 +58,7 @@
 		$(window).load(function(){
 			var y = $("#pwdText").position().top;
 			var x = $("#pwdText").position().left;
-			$("#pwdTitle").css("top",y-1).css("left",x+5);
+			$("#pwdTitle").css("top",y-6).css("left",x+1);
 		});
 	</script>
   </head>
@@ -86,7 +86,10 @@
     <!-- 导航菜单 -->
     <div class="base menuroot">
    		<ul>
-   			<li><a href="#">首页</a></li>
+   			<li><a href="#">动画首页</a></li>
+   			<li><a href="#">动漫周边</a></li>
+   			<li><a href="#">动漫情报</a></li>
+   			<li><a href="#">动漫图展</a></li>
    		</ul>
     </div>
   </body>
